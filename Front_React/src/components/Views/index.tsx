@@ -1,12 +1,14 @@
 import {FC} from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes as Switch, Route } from 'react-router-dom';
+
+import Home from './Home';
 
 const Views : FC = () => {
     return(
         <>
-            <Routes>
-                <Route path="/"/>
-            </Routes>
+            <Switch>
+                <Route path="/" element={<Home/>}/>
+            </Switch>
         </>
     )
 }
