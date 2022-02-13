@@ -43,6 +43,7 @@ namespace ShopListApi.Controllers
             var quantitieType = new QuantitieType
             {
                 Name = quantitieTypeDto.Name,
+                ShortCut = quantitieTypeDto.ShortCut,
                 HowManyGrams = quantitieTypeDto.HowManyGrams
             };
 
@@ -60,6 +61,7 @@ namespace ShopListApi.Controllers
 
             var quantitieTypeToUpdate = new QuantitieType{
                 Name = quantitieTypeDto.Name,
+                ShortCut = quantitieTypeDto.ShortCut,
                 HowManyGrams = quantitieTypeDto.HowManyGrams
             };
 

@@ -127,6 +127,10 @@ namespace ShopListApi.Migrations
                         .HasColumnType("integer")
                         .HasColumnName("product_id");
 
+                    b.Property<string>("ShortCut")
+                        .HasColumnType("text")
+                        .HasColumnName("short_cut");
+
                     b.HasKey("Id")
                         .HasName("pk_quantitie_type");
 

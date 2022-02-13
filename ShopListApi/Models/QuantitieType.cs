@@ -9,6 +9,7 @@ namespace ShopListApi.Models
     {
         public int Id { get; set; }
         public string Name {get; set; }
+        public string ShortCut {get; set; }
         public int HowManyGrams {get; set; }
     }
 }

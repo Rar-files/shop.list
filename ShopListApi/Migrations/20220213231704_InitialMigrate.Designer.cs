@@ -12,7 +12,7 @@ using ShopListApi.Data;
 namespace ShopListApi.Migrations
 {
     [DbContext(typeof(ShopListDBContext))]
-    [Migration("20220213221710_InitialMigrate")]
+    [Migration("20220213231704_InitialMigrate")]
     partial class InitialMigrate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -128,6 +128,10 @@ namespace ShopListApi.Migrations
                     b.Property<int?>("ProductID")
                         .HasColumnType("integer")
                         .HasColumnName("product_id");
+
+                    b.Property<string>("ShortCut")
+                        .HasColumnType("text")
+                        .HasColumnName("short_cut");
 
                     b.HasKey("Id")
                         .HasName("pk_quantitie_type");
