@@ -2,12 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ShopListApi.Models;
 
-namespace ShopListApi.Models
+namespace ShopListApi.Dtos
 {
-    public class Product
-    {  
-        public int ID { get; set; }
+    public class ProductDto
+    {
         public string Name { get; set; }
         public string ImageURL { get; set; }
         public string Grams { get; set; }

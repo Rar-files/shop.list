@@ -5,7 +5,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace ShopListApi.Migrations
 {
-    public partial class InitialMigrations : Migration
+    public partial class InitialMigrate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

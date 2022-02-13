@@ -12,8 +12,8 @@ using ShopListApi.Data;
 namespace ShopListApi.Migrations
 {
     [DbContext(typeof(ShopListDBContext))]
-    [Migration("20220213145035_InitialMigrations")]
-    partial class InitialMigrations
+    [Migration("20220213221710_InitialMigrate")]
+    partial class InitialMigrate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
