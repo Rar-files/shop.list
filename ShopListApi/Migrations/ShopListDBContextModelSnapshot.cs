@@ -39,8 +39,15 @@ namespace ShopListApi.Migrations
                         .HasColumnType("text")
                         .HasColumnName("name");
 
+                    b.Property<int?>("ProductID")
+                        .HasColumnType("integer")
+                        .HasColumnName("product_id");
+
                     b.HasKey("Id")
                         .HasName("pk_category");
+
+                    b.HasIndex("ProductID")
+                        .HasDatabaseName("ix_category_product_id");
 
                     b.ToTable("category", (string)null);
                 });
@@ -81,8 +88,8 @@ namespace ShopListApi.Migrations
                         .HasColumnType("text")
                         .HasColumnName("description");
 
-                    b.Property<string>("Grams")
-                        .HasColumnType("text")
+                    b.Property<int>("Grams")
+                        .HasColumnType("integer")
                         .HasColumnName("grams");
 
                     b.Property<string>("ImageURL")
@@ -93,15 +100,8 @@ namespace ShopListApi.Migrations
                         .HasColumnType("text")
                         .HasColumnName("name");
 
-                    b.Property<int?>("ProductID")
-                        .HasColumnType("integer")
-                        .HasColumnName("product_id");
-
                     b.HasKey("ID")
                         .HasName("pk_product");
-
-                    b.HasIndex("ProductID")
-                        .HasDatabaseName("ix_product_product_id");
 
                     b.ToTable("product", (string)null);
                 });
@@ -140,12 +140,12 @@ namespace ShopListApi.Migrations
                     b.ToTable("quantitie_type", (string)null);
                 });
 
-            modelBuilder.Entity("ShopListApi.Models.Product", b =>
+            modelBuilder.Entity("ShopListApi.Models.Category", b =>
                 {
                     b.HasOne("ShopListApi.Models.Product", null)
                         .WithMany("Categories")
                         .HasForeignKey("ProductID")
-                        .HasConstraintName("fk_product_product_product_id");
+                        .HasConstraintName("fk_category_product_product_id");
                 });
 
             modelBuilder.Entity("ShopListApi.Models.QuantitieType", b =>

@@ -5,24 +5,10 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace ShopListApi.Migrations
 {
-    public partial class InitialMigrate : Migration
+    public partial class InitialMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.CreateTable(
-                name: "category",
-                columns: table => new
-                {
-                    id = table.Column<int>(type: "integer", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    name = table.Column<string>(type: "text", nullable: true),
-                    description = table.Column<string>(type: "text", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("pk_category", x => x.id);
-                });
-
             migrationBuilder.CreateTable(
                 name: "member",
                 columns: table => new
@@ -45,15 +31,29 @@ namespace ShopListApi.Migrations
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     name = table.Column<string>(type: "text", nullable: true),
                     image_url = table.Column<string>(type: "text", nullable: true),
-                    grams = table.Column<string>(type: "text", nullable: true),
+                    grams = table.Column<int>(type: "integer", nullable: false),
+                    description = table.Column<string>(type: "text", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("pk_product", x => x.id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "category",
+                columns: table => new
+                {
+                    id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    name = table.Column<string>(type: "text", nullable: true),
                     description = table.Column<string>(type: "text", nullable: true),
                     product_id = table.Column<int>(type: "integer", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("pk_product", x => x.id);
+                    table.PrimaryKey("pk_category", x => x.id);
                     table.ForeignKey(
-                        name: "fk_product_product_product_id",
+                        name: "fk_category_product_product_id",
                         column: x => x.product_id,
                         principalTable: "product",
                         principalColumn: "id");
@@ -81,8 +81,8 @@ namespace ShopListApi.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "ix_product_product_id",
-                table: "product",
+                name: "ix_category_product_id",
+                table: "category",
                 column: "product_id");
 
             migrationBuilder.CreateIndex(
